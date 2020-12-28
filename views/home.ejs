@@ -1,5 +1,32 @@
 <%- include('partials/header'); %>
 <div class="jumbotron">
-  <h1><%= message %></h1>
+  <h1>Which is your favourite?</h1>
+  <form class="" action="/createLink" method="post">
+    <input type="radio" id="Chocolate Cookie" name="biscuits" value="1">
+    <label for="Chocolate Cookie">Chocolate Cookie</label><br>
+    <input type="radio" id="Bourbonne" name="biscuits" value="2">
+    <label for="Bourbonne">Bourbonne</label><br>
+    <input type="radio" id="Jammy Dodger" name="biscuits" value="3">
+    <label for="Jammy Dodger">Jammy Dodger</label>
+    <br>
+    <br>
+    <input type="radio" id="red" name="colour" value="1">
+    <label for="red">Red</label><br>
+    <input type="radio" id="blue" name="colour" value="2">
+    <label for="blue">Blue</label><br>
+    <input type="radio" id="Green" name="colour" value="3">
+    <label for="Green">Green</label>
+    <br>
+    <br>
+    <input type="radio" id="pizza" name="food" value="1">
+    <label for="pizza">Pizza</label><br>
+    <input type="radio" id="pasta" name="food" value="2">
+    <label for="pasta">Pasta</label><br>
+    <input type="radio" id="burrito" name="food" value="3">
+    <label for="burrito">Burrito</label>
+    <br>
+    <br>
+    <button type="submit" name="submit">Submit</button>
+  </form>
 </div>
 <%- include('partials/footer'); %>

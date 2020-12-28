@@ -13,6 +13,10 @@ app.get("/",function(req,res){
   res.render("home",{message:message});
 });
 
+app.post("/createLink",function(req,res){
+  console.log(req.body.biscuits+req.body.colour+req.body.food)
+});
+
 let port = process.env.PORT;
 if (port == null || port == "") {
   port = 3000;
