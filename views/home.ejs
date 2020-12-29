@@ -1,33 +1,16 @@
 <%- include('partials/header'); %>
+<p hidden id="type"><%= action %></p>
 <div class="jumbotron">
-  <h1><%= message %></h1>
-  <form class="" action="/<%= action %>" method="post">
-    <input type="radio" id="Chocolate Cookie" name="biscuits" value="1">
-    <label for="Chocolate Cookie">Chocolate Cookie</label><br>
-    <input type="radio" id="Bourbonne" name="biscuits" value="2">
-    <label for="Bourbonne">Bourbonne</label><br>
-    <input type="radio" id="Jammy Dodger" name="biscuits" value="3">
-    <label for="Jammy Dodger">Jammy Dodger</label>
-    <br>
-    <br>
-    <input type="radio" id="red" name="colour" value="1">
-    <label for="red">Red</label><br>
-    <input type="radio" id="blue" name="colour" value="2">
-    <label for="blue">Blue</label><br>
-    <input type="radio" id="Green" name="colour" value="3">
-    <label for="Green">Green</label>
-    <br>
-    <br>
-    <input type="radio" id="pizza" name="food" value="1">
-    <label for="pizza">Pizza</label><br>
-    <input type="radio" id="pasta" name="food" value="2">
-    <label for="pasta">Pasta</label><br>
-    <input type="radio" id="burrito" name="food" value="3">
-    <label for="burrito">Burrito</label>
-    <br>
-    <br>
-    <input type="hidden" id="freindsResult" name="freindsResult" value="<%= freindsResult %>">
-    <button type="submit" name="submit">Submit</button>
-  </form>
+  <h1 id="question"></h1>
+  <button type="button" name="1" id="1"></button>
+  <button type="button" name="2" id="2"></button>
+  <button type="button" name="3" id="3"></button>
+  <button type="button" name="4" id="4"></button>
 </div>
+<form id="answersForm" action="" method="post">
+  <input type="hidden" id="answers" name="answers" value="">
+  <input type="hidden" id="friendsResult" name="friendsResult" value="<%= friendsResult %>">
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/js/quiz.js" charset="utf-8"></script>
 <%- include('partials/footer'); %>
