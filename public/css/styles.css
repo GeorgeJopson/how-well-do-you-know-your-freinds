@@ -1,4 +1,46 @@
 /*Css File*/
+html{
+  height: 100%;
+  min-height: 100%;
+}
 body{
   text-align: center;
+  background-color: #e7e7de;
+  position: relative;
+  height: 100%;
+  min-height: 100%;
+}
+
+.header{
+  background-color: #0f3057;
+  text-align: middle;
+  padding: 1%;
+}
+
+.header h4{
+  color: white;
+  display: inline-block;
+  vertical-align: middle;
+  padding:0;
+  margin:0;
+  padding-right: 1%;
+}
+
+.questionBox{
+  padding:2% 5% 2% 5%;
+}
+
+.questionBox .btn{
+  margin: 1% 0 1% 0;
+}
+
+#question{
+  margin-bottom:3%;
+}
+
+.footer {
+  position: absolute;
+  bottom:1%;
+  left:30%;
+  right: 30%;
 }
