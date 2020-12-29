@@ -8,6 +8,11 @@ app.set("view engine","ejs");
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
 
+String.prototype.replaceAll = function(str1, str2, ignore)
+{
+    return this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g,"\\$&"),(ignore?"gi":"g")),(typeof(str2)=="string")?str2.replace(/\$/g,"$$$$"):str2);
+}
+
 app.get("/",function(req,res){
   let friendsResult=null;
   let action="initial";
@@ -16,13 +21,14 @@ app.get("/",function(req,res){
 
 app.post("/createLink",function(req,res){
   let results = req.body.answers;
-  console.log(results);
+  results=results.replaceAll("1","<").replaceAll("2",">").replaceAll("3","#").replaceAll("4","~");
   let link = "localhost:3000/"+results;
   res.render("results",{output:link});
 });
 
 app.get("/:results",function(req,res){
   let friendsResult = req.params.results;
+  friendsResult=friendsResult.replaceAll("<","1").replaceAll(">","2").replaceAll("#","3").replaceAll("~","4");
   let message ="Guess your freinds answers";
   let action ="score";
   res.render("home",{message:message,friendsResult:friendsResult,action:action});
