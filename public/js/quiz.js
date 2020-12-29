@@ -7,13 +7,13 @@ if(type=="initial"){
 
 function Question(question,answers){
   if (type=="initial"){
-    this.question=question.replace("-","your");
+    this.question=question.replace("-","your").replace("$","you");
   }else{
-    this.question=question.replace("-","their");
+    this.question=question.replace("-","their").replace("$","they");
   }
     this.answers=answers;
 }
-let questions=[new Question("What is - favourite colour?",["Red","Blue","Green","Yellow"]), new Question("What is - favourite super hero",["Batman","Iron Man","Spiderman","Captain America"]), new Question("What is - most hated ice cream flavour",["Vanilla","Chocolate","Strawberry","Mint Choc Chip"])];
+let questions=[new Question("What is - favourite colour?",["Red","Blue","Green","Yellow"]), new Question("What is - favourite super hero",["Batman","Iron Man","Spiderman","Captain America"]), new Question("What flavour of ice cream do $ hate the most?",["Vanilla","Chocolate","Strawberry","Mint Choc Chip"])];
 let questionCounter=0;
 function newQuestion(counter){
   let question=questions[counter]
