@@ -16,20 +16,23 @@ String.prototype.replaceAll = function(str1, str2, ignore)
 app.get("/",function(req,res){
   let friendsResult=null;
   let action="initial";
-  res.render("home",{friendsResult:friendsResult,action:action});
+  let message="Fill out this quiz"
+  res.render("home",{message:message,friendsResult:friendsResult,action:action});
 });
 
 app.post("/createLink",function(req,res){
+  let name= req.body.name;
   let results = req.body.answers;
   results=results.replaceAll("1","<").replaceAll("2",">").replaceAll("3","#").replaceAll("4","~");
-  let link = "localhost:3000/"+results;
+  let link = "localhost:3000/"+name+"/"+results;
   res.render("results",{output:link});
 });
 
-app.get("/:results",function(req,res){
+app.get("/:name/:results",function(req,res){
+  let friendsName= req.params.name;
   let friendsResult = req.params.results;
   friendsResult=friendsResult.replaceAll("<","1").replaceAll(">","2").replaceAll("#","3").replaceAll("~","4");
-  let message ="Guess your freinds answers";
+  let message ="Guess "+friendsName+"'s answers";
   let action ="score";
   res.render("home",{message:message,friendsResult:friendsResult,action:action});
 });

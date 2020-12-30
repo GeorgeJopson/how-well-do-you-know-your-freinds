@@ -1,15 +1,22 @@
 <%- include('partials/header'); %>
 <p hidden id="type"><%= action %></p>
+<h1><%=message%></h1>
+<div class="nameBox">
+  <h1 class="nameBox">What is your name?</h1>
+  <input type="text" class="nameBox" name="nameInput" id="nameInput" value="" placeholder="Enter your name">
+  <button type="button" class="nameBox" id="nameSubmitButton" name="nameSubmitButton">Submit</button>
+</div>
 <div class="questionBox">
-  <h1 id="question"></h1>
-  <button type="button" class="btn btn-primary btn-lg btn-block" name="1" id="1"></button>
-  <button type="button" class="btn btn-primary btn-lg btn-block" name="2" id="2"></button>
-  <button type="button" class="btn btn-primary btn-lg btn-block" name="3" id="3"></button>
-  <button type="button" class="btn btn-primary btn-lg btn-block" name="4" id="4"></button>
+  <h1 id="question" class="questionBox"></h1>
+  <button type="button" class="btn btn-primary btn-lg btn-block questionBox" name="1" id="1"></button>
+  <button type="button" class="btn btn-danger btn-lg btn-block questionBox" name="2" id="2"></button>
+  <button type="button" class="btn btn-success btn-lg btn-block questionBox" name="3" id="3"></button>
+  <button type="button" class="btn btn-warning btn-lg btn-block questionBox" name="4" id="4"></button>
 </div>
 <form id="answersForm" action="" method="post">
   <input type="hidden" id="answers" name="answers" value="">
   <input type="hidden" id="friendsResult" name="friendsResult" value="<%= friendsResult %>">
+  <input type="hidden" id="name" name="name" value="">
 </form>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="/js/quiz.js" charset="utf-8"></script>
