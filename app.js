@@ -24,7 +24,7 @@ app.post("/createLink",function(req,res){
   let name= req.body.name;
   let results = req.body.answers;
   results=results.replaceAll("1","<").replaceAll("2",">").replaceAll("3","+").replaceAll("4","~");
-  let link = "localhost:3000/"+name+"/"+results;
+  let link = "https://nameless-reef-41699.herokuapp.com//"+name+"/"+results;
   let message="Share this link with your friends!"
   res.render("results",{message:message,output:link});
 });
@@ -52,7 +52,8 @@ app.post("/score",function(req,res){
   });
   let message ="Your score (how many answers you guessed correctly) is...";
   let score = correct+"/"+outOf;
-  res.render("results",{message:message,output:score})
+  let questions = [["What is their favourite colour?",["Blue","Red","Green","Yellow"]], ["What is their favourite super hero",["Batman","Iron Man","Spiderman","Captain America"]], ["What flavour of ice cream do they hate the most?",["Vanilla","Chocolate","Strawberry","Mint Choc Chip"]], ["What job do they want the most?",["Doctor","Astronaut","Teacher","Author"]], ["What job do they want the least?",["Doctor","Astronaut","Teacher","Author"]],["What is their favourite animal out of:",["Dog","Cat","Turtle","Shark"]],["What is - favourite type of music from:",["Rock","Pop","Rap","Classical"]],["If they were invisible for one day, what would you do?",["Rob a bank","Spy on people","Prank people","Nothing"]],["In their opinion, what is the most important quality in a friend",["Kind","Good Communicator","Funny","Trust"]],["If they had a time machine, where would they go first?",["The future","Victorian London","Ancient Rome","The Jurassic Era"]]];
+  res.render("results",{message:message,output:score,friendsResult:friendsResult,questions:questions})
 });
 
 let port = process.env.PORT;
