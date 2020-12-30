@@ -1,4 +1,19 @@
 /*Css File*/
+/* Boxes */
+.group{
+  margin:0 20% 0 20%;
+  padding:2%;
+  border-radius: 10px;
+  background-color: #dfdfd3;
+}
+/* Name form */
+.form-group .nameInput{
+  margin-top: 2%;
+}
+.form-group .submitBtn{
+  margin:3%;
+}
+/* Main */
 html{
   height: 100%;
   min-height: 100%;
@@ -26,6 +41,11 @@ body{
   padding-right: 1%;
 }
 
+.message{
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
 .questionBox{
   padding:2% 5% 2% 5%;
 }
@@ -34,8 +54,9 @@ body{
   margin: 1% 0 1% 0;
 }
 
-#question{
-  margin-bottom:3%;
+.question{
+  margin-top: 0;
+  margin-bottom:2%;
 }
 
 .footer {
@@ -43,4 +64,14 @@ body{
   bottom:1%;
   left:30%;
   right: 30%;
+}
+
+/* Results Page */
+.resultsGroup{
+  margin-top: 2%;
+}
+
+/* Toggleable Classes */
+.hide{
+  display: none;
 }

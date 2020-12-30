@@ -23,15 +23,16 @@ app.get("/",function(req,res){
 app.post("/createLink",function(req,res){
   let name= req.body.name;
   let results = req.body.answers;
-  results=results.replaceAll("1","<").replaceAll("2",">").replaceAll("3","#").replaceAll("4","~");
+  results=results.replaceAll("1","<").replaceAll("2",">").replaceAll("3","+").replaceAll("4","~");
   let link = "localhost:3000/"+name+"/"+results;
-  res.render("results",{output:link});
+  let message="Share this link with your friends!"
+  res.render("results",{message:message,output:link});
 });
 
 app.get("/:name/:results",function(req,res){
   let friendsName= req.params.name;
   let friendsResult = req.params.results;
-  friendsResult=friendsResult.replaceAll("<","1").replaceAll(">","2").replaceAll("#","3").replaceAll("~","4");
+  friendsResult=friendsResult.replaceAll("<","1").replaceAll(">","2").replaceAll("+","3").replaceAll("~","4");
   let message ="Guess "+friendsName+"'s answers";
   let action ="score";
   res.render("home",{message:message,friendsResult:friendsResult,action:action});
@@ -40,6 +41,7 @@ app.get("/:name/:results",function(req,res){
 app.post("/score",function(req,res){
   let results = req.body.answers.split("");
   let friendsResult = req.body.friendsResult.split("");
+  console.log(req.body.friendsResult);
   let correct=0;
   let outOf=0
   results.forEach(function(answer){
@@ -48,8 +50,9 @@ app.post("/score",function(req,res){
     }
     outOf++;
   });
+  let message ="Your score (how many answers you guessed correctly) is...";
   let score = correct+"/"+outOf;
-  res.render("results",{output:score})
+  res.render("results",{message:message,output:score})
 });
 
 let port = process.env.PORT;
