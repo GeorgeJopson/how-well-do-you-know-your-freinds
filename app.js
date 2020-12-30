@@ -24,7 +24,7 @@ app.post("/createLink",function(req,res){
   let name= req.body.name;
   let results = req.body.answers;
   results=results.replaceAll("1","<").replaceAll("2",">").replaceAll("3","+").replaceAll("4","~");
-  let link = "https://nameless-reef-41699.herokuapp.com//"+name+"/"+results;
+  let link = "https://nameless-reef-41699.herokuapp.com/"+name+"/"+results;
   let message="Share this link with your friends!"
   res.render("results",{message:message,output:link});
 });
